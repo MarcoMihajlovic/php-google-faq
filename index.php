@@ -15,11 +15,13 @@
         <img src="img/Google-logo.png" alt="">
         <div class="nav">
             <ul>
-                <li>Introduzione</li>
-                <li>Norme sulla Privacy</li>
-                <li>Termini di servizio</li>
-                <li>Tecnologie</li>
-                <li>Domande Frequenti</li>
+            <?php
+                $navOptions = ["Introduzione", "Norme sulla Privacy", "Termini di servizio", "Tecnologie", "Domande Frequenti"];
+
+                foreach($navOptions as $k => $option) {
+                    echo "<li>$option</li>";
+                }
+            ?>
             </ul>
         </div>
     </header>
