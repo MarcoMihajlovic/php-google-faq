@@ -52,3 +52,12 @@ main {
     margin: 20px 0;
     line-height: 30px;
 }
+
+ol > li {
+    margin-left: 15px;
+    padding: 0 20px;
+}
+
+li > ol {
+    list-style: lower-alpha;
+}

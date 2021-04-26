@@ -102,14 +102,30 @@
             echo "<h2>".$question["title"]."</h2>";
             
             foreach($question["paragraphs"] as $i => $response) {
-                echo "<p>".$response."</p>";
                 
-                if (count ($response["list"]) > 0) {
-                    echo "<ul>";
-                    foreach($response["list"] as $j => $listed) {
-                        echo "<li>$listed</li>";
+                if(!is_array($response)){
+                    echo "<p>".$response."</p>";
+                }
+
+                if (is_array($response)) {
+                    echo "<ol>";
+                    foreach($response as $j => $listed) {
+                        
+                        if(!is_array($listed)){
+
+                            echo "<li><p>$listed</p></li>";
+                        
+                        } else {
+                            echo "<li><p>$j</p><ol>";
+
+                            foreach($listed as $z => $dot) {
+                                echo "<li><p>$dot</p></li>";
+                            }
+
+                            echo "</ol></li>";
+                        }
                     }
-                    echo "</ul>";
+                    echo "</ol>";
                 }
             }
         }
